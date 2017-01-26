@@ -22,7 +22,7 @@ class HueServer(Script):
     env.set_params(params)
     setup_hue()
     # Fix for no SQLite db
-    Execute (format("{hue_bin_dir}/hue syncdb"), user=params.hue_user)
+    Execute (format("{hue_bin_dir}/hue syncdb --noinput"), user=params.hue_user)
     Execute (format("{hue_bin_dir}/hue migrate"), user=params.hue_user)
     
   def start(self, env):
